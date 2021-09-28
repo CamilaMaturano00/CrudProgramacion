@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./index">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./add">Usuarios</a>
@@ -47,64 +47,45 @@
   <br>
   <div class="container">
     <div class="text-center">
-      <h2>Editar datos de usuario</h2>
+      <h2>Editar datos de producto</h2>
     </div>
     <br>
-    <form action="./edit-user" method="POST">
-      <input type="hidden" name="id" value="<%= user.id %>">
+    <form action="./edit-product" method="POST">
+      <input type="hidden" name="id" value="<%= product.id %>">
       <div class="row">
         <div class="col-12">
-          <label for="username" class="form-label">Nombre de usuario</label>
-          <input type="text" name="username" id="username" class="form-control" value="<%= user.username %>">
+          <label for="productname" class="form-label">Nombre de producto</label>
+          <input type="text" name="productname" id="productname" class="form-control" value="<%= product.productname %>">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-6">
-          <label for="email" class="form-label">Correo electrónico</label>
-          <input type="text" name="email" id="email" class="form-control" value="<%= user.email %>">
+          <label for="id" class="form-label">Id producto</label>
+          <input type="text" name="id" id="id" class="form-control" value="<%= product.id %>">
         </div>
         <div class="col-6">
-          <label for="phone" class="form-label">Teléfono</label>
-          <input type="text" name="phone" id="phone" class="form-control" value="<%= user.phone %>">
+          <label for="price" class="form-label">Precio</label>
+          <input type="text" name="price" id="price" class="form-control" value="<%= product.price %>">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-6">
-          <label for="city" class="form-label">Ciudad</label>
-          <input type="text" name="city" id="city" class="form-control" value="<%= user.city %>">
+          <label for="type" class="form-label">Tipo de Producto</label>
+          <input type="text" name="type" id="type" class="form-control" value="<%= product.type %>">
         </div>
         <div class="col-6">
-          <label for="state" class="form-label">Provincia</label>
-          <select name="state" id="state" class="form-select">
-            <option value="<%= user.state %>" selected>
-              <%= user.state %>
+          <label for="category_id" class="form-label">Categoria</label>
+          <select name="category_id" id="category_id" class="form-select">
+            <option value="<%= product.category_id %>" selected>
+              <%= product.category_id %>
             </option>
-            <option value="BA">Buenos Aires</option>
-            <option value="CF">Capital Federal</option>
-            <option value="CA">Catamarca</option>
-            <option value="CH">Chaco</option>
-            <option value="CT">Chubut</option>
-            <option value="CB">Córdoba</option>
-            <option value="CR">Corrientes</option>
-            <option value="ER">Entre Ríos</option>
-            <option value="FO">Formosa</option>
-            <option value="JY">Jujuy</option>
-            <option value="LP">La Pampa</option>
-            <option value="LR">La Rioja</option>
-            <option value="MZ">Mendoza</option>
-            <option value="MI">Misiones</option>
-            <option value="NQN">Neuquén</option>
-            <option value="RN">Río Negro</option>
-            <option value="SA">Salta</option>
-            <option value="SJ">San Juan</option>
-            <option value="SL">San Luis</option>
-            <option value="SC">Santa Cruz</option>
-            <option value="SF">Santa Fe</option>
-            <option value="SE">Santiago del Estero</option>
-            <option value="TF">Tierra del fuego</option>
-            <option value="TU">Tucumán</option>
+            <option value="LT">Lacteos</option>
+            <option value="GA">Galletas</option>
+            <option value="F">Fiambres</option>
+            <option value="BE">Bebidas</option>
+            <option value="CT">Mercaderia en general</option>
           </select>
         </div>
       </div>
@@ -112,12 +93,12 @@
       <div class="row">
         <div class="col-6">
           <div class="float-start">
-            <button type="submit" class="btn primary-btn">Actualizar usuario</button>
+            <button type="submit" class="btn primary-btn">Actualizar producto</button>
           </div>
         </div>
         <div class="col-6">
           <div class="float-end">
-            <a href="./index" class="btn secondary-btn" >Volver al inicio</a>
+            <a href="./index" class="btn secondary-btn">Volver al inicio</a>
           </div>
         </div>
       </div>

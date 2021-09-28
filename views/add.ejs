@@ -28,11 +28,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./index">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./add">Agregar usuario</a>
+            <a class="nav-link active" aria-current="page" href="./add">Usuarios</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./addProduct">Productos</a>
+          </li>          
         </ul>
         <form class="d-flex" action="./search" method="GET">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="search">
@@ -44,7 +47,7 @@
   <br>
   <div class="container">
     <div class="text-center">
-      <h2>Lista de usuarios</h2>
+      <h2>Ingresar usuario</h2>
     </div>
     <br>
     <form action="./add-user" method="POST">
@@ -61,19 +64,19 @@
           <input type="text" name="email" id="email" class="form-control">
         </div>
         <div class="col-6">
-          <label for="telefone" class="form-label">Teléfono</label>
-          <input type="text" name="telefone" id="telefone" class="form-control">
+          <label for="phone" class="form-label">Teléfono</label>
+          <input type="text" name="phone" id="phone" class="form-control">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-6">
-          <label for="cidade" class="form-label">Ciudad</label>
-          <input type="text" name="cidade" id="cidade" class="form-control">
+          <label for="city" class="form-label">Ciudad</label>
+          <input type="text" name="city" id="city" class="form-control">
         </div>
         <div class="col-6">
-          <label for="estado" class="form-label">Provincia</label>
-          <select name="estado" id="estado" class="form-select">
+          <label for="state" class="form-label">Provincia</label>
+          <select name="state" id="state" class="form-select">
             <option value="" selected disabled>Seleccione su estado</option>
             <option value="BA">Buenos Aires</option>
             <option value="CF">Capital Federal</option>
@@ -111,7 +114,7 @@
         </div>
         <div class="col-6">
           <div class="float-end">
-            <a href="./" class="btn secondary-btn">Volver al inicio</a>
+            <a href="./index" class="btn secondary-btn">Volver al inicio</a>
           </div>
         </div>
       </div>

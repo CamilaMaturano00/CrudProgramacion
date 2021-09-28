@@ -1,34 +1,46 @@
 import { Router } from "express";
-import { CreateUserController } from "./controllers/CreateUserController";
-import { DeleteUserController } from "./controllers/DeleteUserController";
-import { GetUserDataController } from "./controllers/GetUserDataController";
-import { ListUsersController } from "./controllers/ListUsersController";
-import { SearchUserController } from "./controllers/SearchUserController";
-import { UpdateUserController } from "./controllers/UpdateUserController";
+import {UserControllers} from "./controllers/UserControllers";
+import ProductControllers from "./controllers/ProductControllers";
 
 const router = Router();
 
-const createUserController = new CreateUserController();
-const searchUserController = new SearchUserController();
-const updateUserController = new UpdateUserController();
-const deleteUserController = new DeleteUserController();
-const listUsersController = new ListUsersController();
-const getUserDataController = new GetUserDataController();
+const controllers = new UserControllers();
 
-router.get("/", listUsersController.handle);
+router.get("/index",controllers.handleListUser);
 
 router.get("/add", (request, response) => {
   response.render("add");
 });
+router.get("/", (request, response) => {
+  response.render("login");
+});
+/*router.get("/index", (request, response) => {
+  response.render("index");
+});*/
+router.post("/add-user", controllers.handleCreateUser);
 
-router.post("/add-user", createUserController.handle);
+router.get("/search", controllers.handleSearchUser);
 
-router.get("/search", searchUserController.handle);
+router.get("/edit", controllers.handleGetUser);
 
-router.get("/edit", getUserDataController.handle);
+router.post("/edit-user", controllers.handleUpdateUser);
 
-router.post("/edit-user", updateUserController.handle);
+router.post("/delete-user", controllers.handleDeleteUser);
 
-router.post("/delete-user", deleteUserController.handle);
+const product = new ProductControllers();
 
+router.get("/product", product.handleListProduct);
+
+router.get("/addProduct", (request, response) => {
+  response.render("addProduct");
+});
+router.post("/addProduct", product.handleCreateProduct);
+
+router.get("/search", product.handleSearchProduct);
+
+router.get("/editProduct", product.handleGetProduct);
+
+router.post("/edit-product", product.handleUpdateProduct);
+
+router.post("/delete-product", product.handleDeleteProduct);
 export { router };
