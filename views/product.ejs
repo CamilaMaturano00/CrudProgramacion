@@ -28,14 +28,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./add">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./add">Usuarios</a>
+            <a class="nav-link active" aria-current="page" href="./Usuarios">Usuarios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./product">Productos</a>
-          </li>          
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./Category">Categorias</a>
+          </li>                      
         </ul>
         <form class="d-flex" action="./search" method="GET">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="search">
@@ -52,13 +55,15 @@
     <br>
     <br>
     <br>
-    <table class="table table-hover"" >
+    <table class="table table-hover" style="color: white;" >
       <thead>
         <th scope="col">Nombre de producto</th>
         <th scope="col">Id Producto </th>
         <th scope="col">Precio</th>
         <th scope="col">Tipo</th>
         <th scope="col">Categoria</th>
+        <th scope="col">Creado</th>
+        <th scope="col">Actualizado</th>
         <th scope="col">Opciones</th>
       </thead>
       <tbody>
@@ -77,8 +82,16 @@
               <%= product.type %>
             </td>
             <td>
-              <%= product.category_id %>
+              <%= product.category %>
             </td>
+            <td>
+              <%= product.created_at.toLocaleDateString() %>
+                <%= product.created_at.toLocaleTimeString() %>
+            </td>
+            <td>
+              <%= product.updated_at.toLocaleDateString() %>
+                <%= product.updated_at.toLocaleTimeString() %>
+            </td>            
             <td>
               <div class="row">
                 <div class="row">

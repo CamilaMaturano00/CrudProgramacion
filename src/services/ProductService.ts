@@ -7,11 +7,11 @@ interface IProduct {
     productname: string;
     price: number;
     type: string;
-    category_id: string;
+    category: string;
   }
   class ProductsService {
-    async create({ id,productname, price, type, category_id }: IProduct) {
-        if (!id || !productname || !price || !type || !category_id) {
+    async create({ id,productname, price, type, category }: IProduct) {
+        if (!id || !productname || !price || !type || !category) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -29,7 +29,7 @@ interface IProduct {
           throw new Error("El correo electrónico ya esta registrado");
         }
     
-        const product = productsRepository.create({ id, productname, price, type, category_id});
+        const product = productsRepository.create({ id, productname, price, type});
     
         await productsRepository.save(product);
     
@@ -75,19 +75,19 @@ interface IProduct {
           .where("productname like :search", { search: `%${search}%` })
           .orWhere("price like :search", { search: `%${search}%` })
           .orWhere("type like :search", { search: `%${search}%` })
-          .orWhere("category_id like :search", { search: `%${search}%` })
+          .orWhere("category like :search", { search: `%${search}%` })
           .getMany();
     
         return product;
     
       }
-      async update({ id, productname, price, type, category_id}: IProduct) {
+      async update({ id, productname, price, type}: IProduct) {
         const productsRepository = getCustomRepository(ProductsRepository);
     
         const product = await productsRepository
           .createQueryBuilder()
           .update(Product)
-          .set({id, productname, price, type, category_id})
+          .set({id, productname, price, type})
           .where("id = :id", { id: String})
           .execute();
     

@@ -4,6 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   max-width: 100vw!important;
   max-height: 100vh!important;
+  text-emphasis-color: white;
 }
 .bg-light {
   background-color: #244b73!important;
@@ -34,7 +35,7 @@ body {
 }
 
 .edit-btn {
-  background-color: yellow;
+  background-color: rgb(255, 251, 0);
   color: #000;
 }
 
@@ -60,4 +61,12 @@ body {
   border: 2px solid rgb(238, 199, 26);
   background-color: #c4a029;
   padding: 30px;
+}
+.table{
+  border: 2px solid rgb(238, 199, 26);
+  padding: 30px
+}
+.submenu{
+  position: absolute;
+  background: #c4a029;
 }

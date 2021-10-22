@@ -1,18 +1,19 @@
 import { Router } from "express";
 import {UserControllers} from "./controllers/UserControllers";
 import ProductControllers from "./controllers/ProductControllers";
+import CategoryControllers from "./controllers/CategoryControllers";
 
 const router = Router();
 
 const controllers = new UserControllers();
 
-router.get("/index",controllers.handleListUser);
+router.get("/Usuarios",controllers.handleListUser);
 
 router.get("/add", (request, response) => {
   response.render("add");
 });
-router.get("/", (request, response) => {
-  response.render("login");
+router.get("/index", (request, response) => {
+  response.render("index");
 });
 /*router.get("/index", (request, response) => {
   response.render("index");
@@ -43,4 +44,21 @@ router.get("/editProduct", product.handleGetProduct);
 router.post("/edit-product", product.handleUpdateProduct);
 
 router.post("/delete-product", product.handleDeleteProduct);
+
+
+const category = new CategoryControllers();
+router.get("/Category", category.handleListCategory);
+router.get("/addCategory", (request, response) => {
+  response.render("addCategory");});
+
+router.post("/addCategory", category.handleCreateCategory);
+
+router.get("/searchCategory", category.handleSearchCategory);
+
+router.get("/editCategory", category.handleGetCategory);
+
+router.post("/edit-category", category.handleUpdateCategory);
+
+router.post("/delete-category", category.handleDeleteCategory);
+
 export { router };

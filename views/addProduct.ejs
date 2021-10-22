@@ -28,14 +28,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./add">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./add">Usuarios</a>
+            <a class="nav-link active" aria-current="page" href="./Usuarios">Usuarios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./product">Productos</a>
-          </li>            
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./Category">Categorias</a>
+          </li>   
         </ul>
         <form class="d-flex" action="./searchProduct" method="GET">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="search">
@@ -50,17 +53,13 @@
       <h2>Ingresar Producto</h2>
     </div>
     <br>
-    <form action="./add-product" method="POST">
+    <form action="./addProduct" method="POST">
       <div class="row">
         <div class="col-12">
           <label for="productname" class="form-label">Nombre de producto</label>
           <input type="text" name="productname" id="productname" class="form-control">
         </div>
       </div>
-      <div class="col-6">
-        <label for="id" class="form-label">Id</label>
-        <input type="text" name="id" id="id" class="form-control">
-      </div>      
       <br>
       <div class="row">
         <div class="col-6">
@@ -68,27 +67,32 @@
           <input type="text" name="price" id="price" class="form-control">
         </div>
         <div class="col-6">
-          <label for="type" class="form-label">Tipo de producto</label>
-          <input type="text" name="type" id="type" class="form-control">
+          <label for="id" class="form-label">Id</label>
+          <input type="text" name="id" id="id" class="form-control">
         </div>
       </div>
       <br>
-      <div class="row">
-        <div class="col-6">
-          <label for="category_id" class="form-label">Categoria</label>
-          <input type="text" name="category_id" id="category_id" class="form-control">
-        </div>
+      <div class="col-6">
+        <label for="category" class="form-label">Categoria</label>
+        <select name="category" id="category" class="form-select">
+          <option value="" selected disabled>Seleccione categoria</option>
+            <% category.forEach(function(category) { %>
+              <option value="<%= category.id %>">
+                <%= category.categoryname %>
+              </option>
+            <% }) %>
+        </select>
       </div>
       <br>
       <div class="row">
         <div class="col-6">
           <div class="float-start">
-            <a href="./index" class="btn secondary-btn">Volver al inicio</a>
+            <button type="submit" class="btn primary-btn">Agregar usuario</button>
           </div>
-        </div>        
+        </div>
         <div class="col-6">
           <div class="float-end">
-            <button type="submit" class="btn primary-btn">Agregar Producto</button>
+            <a href="./product" class="btn secondary-btn">Volver</a>
           </div>
         </div>
       </div>

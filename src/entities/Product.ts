@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn,Entity, JoinColumn, JoinTable, OneToMany, PrimaryColumn, UpdateDateColumn  } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Category } from "./Category";
 @Entity("products")
 class Product {
 
@@ -15,8 +16,16 @@ class Product {
   @Column()
   type: string ;
 
-  @Column()
-  category_id: string;
+  @OneToMany(() => Category, category => category.categoryname)
+  @JoinTable()
+  category: Category[];
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
+
 
   constructor() {
     if (!this.id) {
