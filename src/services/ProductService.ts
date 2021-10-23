@@ -61,7 +61,7 @@ interface IProduct {
     
         const product = await productsRepository.find();
     
-        return product;
+        return product; 
       }
       async search(search: string) {
         if (!search) {
@@ -75,7 +75,7 @@ interface IProduct {
           .where("productname like :search", { search: `%${search}%` })
           .orWhere("price like :search", { search: `%${search}%` })
           .orWhere("type like :search", { search: `%${search}%` })
-          .orWhere("category like :search", { search: `%${search}%` })
+          .orWhere("categories like :search", { search: `%${search}%` })
           .getMany();
     
         return product;

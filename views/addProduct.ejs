@@ -70,24 +70,28 @@
           <label for="id" class="form-label">Id</label>
           <input type="text" name="id" id="id" class="form-control">
         </div>
+        <div class="col-6">
+          <label for="type" class="form-label">Tipo</label>
+          <input type="text" name="type" id="type" class="form-control">
+        </div>        
       </div>
       <br>
       <div class="col-6">
         <label for="category" class="form-label">Categoria</label>
         <select name="category" id="category" class="form-select">
-          <option value="" selected disabled>Seleccione categoria</option>
-            <% category.forEach(function(category) { %>
-              <option value="<%= category.id %>">
-                <%= category.categoryname %>
-              </option>
-            <% }) %>
+            <option value="" selected disabled>Seleccione categoria</option>
+            <% categories.forEach(function(category) { %>
+                <option value="<%= category.id %>">
+                    <%= category.categoryname %>
+                </option>
+              <% }) %>
         </select>
       </div>
       <br>
       <div class="row">
         <div class="col-6">
           <div class="float-start">
-            <button type="submit" class="btn primary-btn">Agregar usuario</button>
+            <button type="submit" class="btn primary-btn">Agregar producto</button>
           </div>
         </div>
         <div class="col-6">

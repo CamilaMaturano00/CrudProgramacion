@@ -32,15 +32,12 @@ const product = new ProductControllers();
 
 router.get("/product", product.handleListProduct);
 
-router.get("/addProduct", (request, response) => {
-  response.render("addProduct");
-});
+router.get("/addProduct", product.handleAddProduct);
 router.post("/addProduct", product.handleCreateProduct);
 
 router.get("/search", product.handleSearchProduct);
 
 router.get("/editProduct", product.handleGetProduct);
-
 router.post("/edit-product", product.handleUpdateProduct);
 
 router.post("/delete-product", product.handleDeleteProduct);

@@ -1,8 +1,15 @@
 import { Request, Response } from "express";
+import { CategoryService } from "../services/CategoryService";
 import {ProductsService} from "../services/ProductService";
 
 class ProductControllers{
+
   
+  async handleAddProduct(reqeust: Request, response: Response) {
+    const service = new CategoryService();
+    const categories = await service.list();
+    response.render("addProduct", {categories})
+  }
   async handleCreateProduct(request: Request, response: Response) {
       const { id,productname, price, type, category} = request.body;
       const service = new ProductsService();
