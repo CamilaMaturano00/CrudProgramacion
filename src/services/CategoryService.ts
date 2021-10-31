@@ -15,10 +15,10 @@ class CategoryService {
     
         const categoriesRepository = getCustomRepository(CategoryRepository);
     
-        const usernameAlreadyExists = await categoriesRepository.findOne({ categoryname });
+        const categorynameAlreadyExists = await categoriesRepository.findOne({ categoryname });
     
-        if (usernameAlreadyExists) {
-          throw new Error("El nombre de usuario ya esta registrado");
+        if (categorynameAlreadyExists) {
+          throw new Error("El nombre de categoria ya esta registrado");
         }
     
         const categories = categoriesRepository.create({ categoryname});

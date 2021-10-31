@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Category } from "../entities/Category";
 import { CategoryService } from "../services/CategoryService";
 import {ProductsService} from "../services/ProductService";
 
@@ -11,14 +12,13 @@ class ProductControllers{
     response.render("addProduct", {categories})
   }
   async handleCreateProduct(request: Request, response: Response) {
-      const { id,productname, price, type, category} = request.body;
+      const { id,productname, price, category} = request.body;
       const service = new ProductsService();
       try {
         await service.create({
           id,
           productname,
           price,
-          type,
           category
         }).then(() => {
           response.render("message", {
@@ -57,17 +57,19 @@ class ProductControllers{
 
     const product = await getProductDataService.getData(id);
 
+    const listarcategoria = new CategoryService();
+  
+    const categorias = await listarcategoria.list()
     return response.render("editProduct", {
-      product: product
-    }); 
+      product: product,
+      categories: categorias
+    });
   } 
   async handleListProduct(request: Request, response: Response) {
     const listProductsService = new ProductsService();
-
     const products = await listProductsService.list();
-
     return response.render("Product", {
-      products: products
+      products: products,
     });
   }
   async handleSearchProduct(request: Request, response: Response) {
@@ -89,12 +91,13 @@ class ProductControllers{
     }
   }
   async handleUpdateProduct(request: Request, response: Response) {
-    const { id, productname, price, type, category} = request.body;
+    
+    const { id, productname, price, category} = request.body;
 
     const updateProductService = new ProductsService();
 
     try {
-      await updateProductService.update({ id, productname, price, type, category}).then(() => {
+      await updateProductService.update({ id, productname, price, category}).then(() => {
         response.render("message", {
           message: "Producto actualizado correctamente"
         });

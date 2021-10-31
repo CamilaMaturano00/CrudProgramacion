@@ -55,12 +55,11 @@
     <br>
     <br>
     <br>
-    <table class="table table-hover" style="color: white;" >
+    <table class="table table-hover"  >
       <thead>
         <th scope="col">Nombre de producto</th>
         <th scope="col">Id Producto </th>
         <th scope="col">Precio</th>
-        <th scope="col">Tipo</th>
         <th scope="col">Categoria</th>
         <th scope="col">Creado</th>
         <th scope="col">Actualizado</th>
@@ -79,10 +78,7 @@
               <%= product.price %>
             </td>
             <td>
-              <%= product.type %>
-            </td>
-            <td>
-              <%= product.categoryname %>
+              <%= product.categoryId%>
             </td>
             <td>
               <%= product.created_at.toLocaleDateString() %>

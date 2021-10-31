@@ -13,9 +13,6 @@ class Product {
   @Column()
   price: number;
 
-  @Column()
-  type: string ;
-
   @ManyToOne(() => Category, category => category.products)
   @JoinColumn({ name: "categoryId" })
   category: Category[];

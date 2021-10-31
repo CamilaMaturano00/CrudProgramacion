@@ -1,4 +1,4 @@
-import {Column,CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn, OneToMany,JoinTable}from "typeorm";
+import {Column,CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn, OneToMany}from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Product } from "./Product";
 @Entity("categories")

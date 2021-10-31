@@ -75,20 +75,14 @@
       <br>
       <div class="row">
         <div class="col-6">
-          <label for="type" class="form-label">Tipo de Producto</label>
-          <input type="text" name="type" id="type" class="form-control" value="<%= product.type %>">
-        </div>
-        <div class="col-6">
-          <label for="category_id" class="form-label">Categoria</label>
-          <select name="category_id" id="category_id" class="form-select">
-            <option value="<%= product.category_id %>" selected>
-              <%= product.category_id %>
-            </option>
-            <option value="LT">Lacteos</option>
-            <option value="GA">Galletas</option>
-            <option value="F">Fiambres</option>
-            <option value="BE">Bebidas</option>
-            <option value="CT">Mercaderia en general</option>
+          <label for="category" class="form-label">Categoria</label>
+          <select name="category" id="category" class="form-select">
+              <option value="" selected disabled>Seleccione categoria</option>
+              <% categories.forEach(function(category) { %>
+                  <option value="<%= category.id %>">
+                      <%= category.categoryname %>
+                  </option>
+                <% }) %>
           </select>
         </div>
       </div>
