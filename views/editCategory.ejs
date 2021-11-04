@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="./"><img src="img/icon.png" alt="Node.js icon" class="nav-icon"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -28,21 +28,24 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./add">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./index">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./Usuarios">Usuarios</a>
+            <a class="nav-link active" aria-current="page" href="./Usuarios">Empleados</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./product">Productos</a>
-          </li>     
+          </li>          
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./Category">Categorias</a>
-          </li>                 
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./ListLogin">Registro</a>
+          </li>  
         </ul>
         <form class="d-flex" action="./search" method="GET">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="search">
-          <button class="btn secondary-btn" type="submit">Buscar</button>
+          <button class="btn btn-warning" type="submit">Buscar</button>
         </form>
       </div>
     </div>
@@ -72,12 +75,12 @@
       <div class="row">
         <div class="col-6">
           <div class="float-start">
-            <button type="submit" class="btn primary-btn">Actualizar categoria</button>
+            <button type="submit" class="btn btn-success">Actualizar categoria</button>
           </div>
         </div>
         <div class="col-6">
           <div class="float-end">
-            <a href="./index" class="btn secondary-btn">Volver al inicio</a>
+            <a href="./index" class="btn btn-success">Volver al inicio</a>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { Router } from "express";
 import {UserControllers} from "./controllers/UserControllers";
 import ProductControllers from "./controllers/ProductControllers";
 import CategoryControllers from "./controllers/CategoryControllers";
+import { LoginControllers } from "./controllers/LoginControllers";
 
 //-------------------------------------------------------------------------
 const router = Router();
@@ -25,7 +26,7 @@ const product = new ProductControllers();
 router.get("/product", product.handleListProduct);
 router.get("/addProduct", product.handleAddProduct);
 router.post("/addProduct", product.handleCreateProduct);
-router.get("/search", product.handleSearchProduct);
+router.get("/searchProduct", product.handleSearchProduct);
 router.get("/editProduct", product.handleGetProduct);
 router.post("/edit-product", product.handleUpdateProduct);
 router.post("/delete-product", product.handleDeleteProduct);
@@ -41,7 +42,35 @@ router.post("/edit-category", category.handleUpdateCategory);
 router.post("/delete-category", category.handleDeleteCategory);
 //-------------------------------------------------------------------------
 
-router.get("/login2", (request, response) => {
-  response.render("login2");
+const login = new LoginControllers();
+/*router.get("/registro", login.renderSignupForm);
+router.post("/registro", login.signup);
+router.get("/login", login.renderSigninForm);
+router.post("/login", login.signin);
+*/
+
+
+router.get("/ListLogin",login.handleListUser);
+router.get("/registro", (request, response) => {
+  response.render("registro");
 });
+router.post("/registro",login.handleCreateLogin);
+router.get("/search", login.handleSearchUser);
+router.get("/edit", login.handleGetUser);
+router.post("/editLogin", login.handleUpdateUser);
+router.post("/deleteLogin", login.handleDeleteUser);
+router.get("/login", (request, response) => {
+  response.render("login");
+});
+
+router.post("/login", login.loginAutentication);
+/*const {renderSignupForm, renderSigninForm, signup, signin, logout } = require('../src/controllers/LoginControllers')
+
+router.get("/registro",renderSignupForm);
+router.post("/registro", signup);
+
+router.get("7login",renderSigninForm);
+router.post("/login", signin);*/
+
+
 export { router };

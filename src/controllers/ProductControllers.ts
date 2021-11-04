@@ -68,8 +68,12 @@ class ProductControllers{
   async handleListProduct(request: Request, response: Response) {
     const listProductsService = new ProductsService();
     const products = await listProductsService.list();
+    const listarcategoria = new CategoryService();
+  
+    const categorias = await listarcategoria.list()
     return response.render("Product", {
       products: products,
+      categories: categorias
     });
   }
   async handleSearchProduct(request: Request, response: Response) {
@@ -77,11 +81,14 @@ class ProductControllers{
     search = search.toString();
 
     const searchProductService = new ProductsService();
-
+    const listarcategoria = new CategoryService();
+  
+    const categorias = await listarcategoria.search(search)
     try {
       const products = await searchProductService.search(search);
-      response.render("search", {
+      response.render("searchProduct", {
         products: products,
+        categories: categorias,
         search: search
       });
     } catch (err) {

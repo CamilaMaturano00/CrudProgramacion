@@ -21,7 +21,10 @@ class User {
 
   @Column()
   state: string;
-
+  
+  /*@Column()
+  password: string;
+*/
   @CreateDateColumn()
   created_at: Date;
 

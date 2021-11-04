@@ -1,38 +1,16 @@
 body {
-  background: teal;
-  color:rgb(255, 255, 255);
+  background: rgb(228, 241, 241);
+  color:rgb(0, 0, 0);
   font-family: 'Open Sans', sans-serif;
   max-width: 100vw!important;
   max-height: 100vh!important;
   text-emphasis-color: white;
-}
-.bg-light {
-  background-color: #244b73!important;
 }
 
 .nav-icon {
   width: 50px;
 }
 
-.primary-btn {
-  background-color: #000000;
-  color: rgb(255, 255, 255);
-}
-
-.primary-btn:hover {
-  background-color:#4a6ac2;
-  color: #ffffff;
-}
-
-.secondary-btn {
-  background-color: #000000;
-  color: #fff;
-}
-
-.secondary-btn:hover {
-  background-color: #4a6ac2;
-  color: #ffffff;
-}
 
 .edit-btn {
   background-color: rgb(255, 251, 0);
@@ -69,4 +47,9 @@ body {
 .submenu{
   position: absolute;
   background: #c4a029;
+}
+.card {
+  text-align: center;
+  padding: 20px;
+  margin: 70px;
 }
