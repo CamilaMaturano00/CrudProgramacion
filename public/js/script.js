@@ -4,7 +4,7 @@ function counter() {
   let timerDiv = document.getElementById("timer");
 
   let timer = setInterval(function () {
-    timerDiv.innerHTML = `Volviendo al inicio en ${countdown}`;
+
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
@@ -12,17 +12,30 @@ function counter() {
     }
   }, 1000);
 }
-function counter() {
+function counterLogin() {
   let countdown = 5;
 
   let timerDiv = document.getElementById("timer");
 
   let timer = setInterval(function () {
-    timerDiv.innerHTML = `Volviendo al inicio en ${countdown}`;
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
-      window.location.href = "./index"
+      window.location.href = "./signIn"
+    }
+  }, 1000);
+}
+function counterRegistro() {
+  let countdown = 5;
+
+  let timerDiv = document.getElementById("timer");
+
+  let timer = setInterval(function () {
+    
+    countdown--;
+    if (countdown === 0) {
+      clearInterval(timer);
+      window.location.href = "./signUp"
     }
   }, 1000);
 }

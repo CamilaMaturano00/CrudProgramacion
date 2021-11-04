@@ -70,34 +70,34 @@
         <th scope="col">Editar </th>
       </thead>
       <tbody>
-        <% login.forEach(function(login) { %>
+        <% list.forEach(function(list) { %>
           <tr>
             <td>
-              <%= login.username%>
+              <%= list.username%>
             </td>
             <td>
-              <%= login.password%>
+              <%= list.password%>
             </td>
             <td>
-              <%= login.created_at.toLocaleDateString() %>
-                <%= login.created_at.toLocaleTimeString() %>
+              <%= list.created_at.toLocaleDateString() %>
+                <%= list.created_at.toLocaleTimeString() %>
             </td>
             <td>
-              <%= login.updated_at.toLocaleDateString() %>
-                <%= login.updated_at.toLocaleTimeString() %>
+              <%= list.updated_at.toLocaleDateString() %>
+                <%= list.updated_at.toLocaleTimeString() %>
             </td>
             <td>
               <div class="row">
                 <div class="row">
                   <form action="./editLogin" method="GET">
-                    <input type="hidden" name="id" value="<%= login.id %>">
+                    <input type="hidden" name="id" value="<%= list.id %>">
                     <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
                   </form>
                 </div>
                 <div class="row"></div>
                 <div class="row">
                   <form action="./deleteLogin" method="POST">
-                    <input type="hidden" name="id" value="<%= login.id %>">
+                    <input type="hidden" name="id" value="<%= list.id %>">
                     <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
                   </form>
                 </div>

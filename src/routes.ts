@@ -43,34 +43,19 @@ router.post("/delete-category", category.handleDeleteCategory);
 //-------------------------------------------------------------------------
 
 const login = new LoginControllers();
-/*router.get("/registro", login.renderSignupForm);
-router.post("/registro", login.signup);
-router.get("/login", login.renderSigninForm);
-router.post("/login", login.signin);
-*/
 
-
+router.get("/signUp", (request, response) => {
+  response.render("signUp");
+});
+router.get("/signIn", (request, response) => {
+  response.render("signIn");
+});
+router.post("/registro",login.handleCreateSingUp);
+router.post("/login", login.signInAutentication);
 router.get("/ListLogin",login.handleListUser);
-router.get("/registro", (request, response) => {
-  response.render("registro");
-});
-router.post("/registro",login.handleCreateLogin);
 router.get("/search", login.handleSearchUser);
-router.get("/edit", login.handleGetUser);
-router.post("/editLogin", login.handleUpdateUser);
+router.get("/editLogin", login.handleGetUser);
+router.post("/edit-Login", login.handleUpdateUser);
 router.post("/deleteLogin", login.handleDeleteUser);
-router.get("/login", (request, response) => {
-  response.render("login");
-});
-
-router.post("/login", login.loginAutentication);
-/*const {renderSignupForm, renderSigninForm, signup, signin, logout } = require('../src/controllers/LoginControllers')
-
-router.get("/registro",renderSignupForm);
-router.post("/registro", signup);
-
-router.get("7login",renderSigninForm);
-router.post("/login", signin);*/
-
 
 export { router };

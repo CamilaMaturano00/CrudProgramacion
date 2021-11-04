@@ -24,7 +24,7 @@ class Login {
       this.id = uuid();
     }
   }
-
+  
 }
 
 export { Login };

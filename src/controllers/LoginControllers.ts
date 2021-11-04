@@ -3,7 +3,7 @@ import {LoginService} from "../services/LoginService";
 
 class LoginControllers{
 
-  async handleCreateLogin(request: Request, response: Response) {
+  async handleCreateSingUp(request: Request, response: Response) {
       const { username, password } = request.body;
       const createUserService = new LoginService();
   
@@ -17,7 +17,7 @@ class LoginControllers{
           });
         });
       } catch (err) {
-        response.render("message", {
+        response.render("messageRegistro", {
           message: `Error al registrar usuario: ${err.message}`
         });
       }
@@ -44,18 +44,18 @@ class LoginControllers{
     id = id.toString();
 
     const getUserDataService = new LoginService();            
-    const login = await getUserDataService.getData(id);
+    const user = await getUserDataService.getData(id);
 
     return response.render("editLogin", {
-      login: login
+      user: user
     }); 
   } 
   async handleListUser(request: Request, response: Response) {
     const listUsersService = new LoginService();
-    const login = await listUsersService.list();
+    const list = await listUsersService.list();
 
     return response.render("ListLogin", {
-      login: login
+      list: list
     });
   }
   async handleSearchUser(request: Request, response: Response) {
@@ -92,12 +92,12 @@ class LoginControllers{
     }
 
   }
-  async loginAutentication(request: Request, response: Response){
+  async signInAutentication(request: Request, response: Response){
     const {username, password} = request.body;
-    const loginAutenticationService = new LoginService();
+    const singInAutenticationService = new LoginService();
 
     try {
-      await loginAutenticationService.autentication({ username, password}).then(() => {
+      await singInAutenticationService.autentication({ username, password}).then(() => {
         response.render("message", {
           message: "Sesion iniciada exitosamente"
         });
@@ -110,21 +110,5 @@ class LoginControllers{
   }
 
 }
-/*class LoginControllers{
-  async renderSignupForm(request: Request, response: Response){
-    response.render('registro');
-  }
-  async signup(request: Request, response: Response){
-    response.render('index');
-  }
-  async renderSigninForm(request: Request, response: Response){
-    response.render('login');
-  }
-  async signin(request: Request, response: Response){
-    response.render('index');
-  }
-  async logout(request: Request, response: Response){
-    response.render('logout');
-  }
-}*/
+
 export {LoginControllers};
