@@ -1,17 +1,17 @@
 import { getCustomRepository } from "typeorm";
 import { ProductsRepository } from "../repositories/ProductsRepository";
 import { Product } from "../entities/Product";
-import { Category } from "../entities/Category";
+
 
 interface IProduct {
     id?: string;
     productname: string;
     price: number;
-    category: Category[];
+    categoryId: string;
   }
   class ProductsService {
-    async create({ id,productname, price, category }: IProduct) {
-        if (!id || !productname || !price || !category) {
+    async create({ id,productname, price, categoryId }: IProduct) {
+        if (!id || !productname || !price || !categoryId) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -23,7 +23,7 @@ interface IProduct {
           throw new Error("El producto ya esta registrado");
         }
   
-        const product = productsRepository.create({ id, productname, price});
+        const product = productsRepository.create({ id, productname, price,categoryId});
     
         await productsRepository.save(product);
     
@@ -68,20 +68,20 @@ interface IProduct {
           .createQueryBuilder()
           .where("productname like :search", { search: `%${search}%` })
           .orWhere("price like :search", { search: `%${search}%` })
-          .orWhere("category like :search", { search: `%${search}%` })
+          .orWhere("categoryId like :search", { search: `%${search}%` })
           .getMany();
     
         return product;
     
       }
-      async update({ id, productname, price, category }: IProduct) {
+      async update({ id, productname, price, categoryId }: IProduct) {
         const productsRepository = getCustomRepository(ProductsRepository);
     
         const product = await productsRepository
           .createQueryBuilder()
           .update(Product)
-          .set({id, productname, price, category})
-          .where("id = :id", { id: String})
+          .set({ productname, price, categoryId})
+          .where("id = :id", { id })
           .execute();
     
         return product;

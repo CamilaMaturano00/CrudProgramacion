@@ -17,7 +17,7 @@ class LoginControllers{
           });
         });
       } catch (err) {
-        response.render("messageRegistro", {
+        response.render("messageSignUp", {
           message: `Error al registrar usuario: ${err.message}`
         });
       }

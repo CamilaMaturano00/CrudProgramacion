@@ -3,13 +3,13 @@ import { CategoryRepository } from "../repositories/CategoryRepository";
 import { Category } from "../entities/Category";
 
 interface ICategory {
-    id?: string;
+    id: string;
     categoryname: string;
 
   }
 class CategoryService {
-      async create({ categoryname}: ICategory) {
-        if (!categoryname) {
+      async create({ id,categoryname}: ICategory) {
+        if (!id || !categoryname) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -21,7 +21,7 @@ class CategoryService {
           throw new Error("El nombre de categoria ya esta registrado");
         }
     
-        const categories = categoriesRepository.create({ categoryname});
+        const categories = categoriesRepository.create({ id,categoryname});
     
         await categoriesRepository.save(categories);
     

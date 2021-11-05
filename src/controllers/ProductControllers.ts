@@ -12,21 +12,21 @@ class ProductControllers{
     response.render("addProduct", {categories})
   }
   async handleCreateProduct(request: Request, response: Response) {
-      const { id,productname, price, category} = request.body;
+      const { id,productname, price, categoryId} = request.body;
       const service = new ProductsService();
       try {
         await service.create({
           id,
           productname,
           price,
-          category
+          categoryId
         }).then(() => {
-          response.render("message", {
+          response.render("messageProduct", {
             message: "Producto registrado exitosamente"
           });
         });
       } catch (err) {
-        response.render("message", {
+        response.render("messageProduct", {
           message: `Error al registrar producto: ${err.message}`
         });
       }
@@ -39,12 +39,12 @@ class ProductControllers{
 
     try {
       await deleteProductService.delete(id).then(() => {
-        response.render("message", {
+        response.render("messageProduct", {
           message: "Producto eliminado correctamente"
         });
       });
     } catch (err) {
-      response.render("message", {
+      response.render("messageProduct", {
         message: `Error al eliminar producto: ${err.message}`
       });
     }
@@ -99,18 +99,18 @@ class ProductControllers{
   }
   async handleUpdateProduct(request: Request, response: Response) {
     
-    const { id, productname, price, category} = request.body;
+    const { id, productname, price, categoryId} = request.body;
 
     const updateProductService = new ProductsService();
 
     try {
-      await updateProductService.update({ id, productname, price, category}).then(() => {
-        response.render("message", {
+      await updateProductService.update({ productname, id, price, categoryId}).then(() => {
+        response.render("messageProduct", {
           message: "Producto actualizado correctamente"
         });
       });
     } catch (err) {
-      response.render("message", {
+      response.render("messageProduct", {
         message: `Error al actualizar producto: ${err.message}`
       });
     }

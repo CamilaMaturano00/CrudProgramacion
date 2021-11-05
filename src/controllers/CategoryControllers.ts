@@ -10,12 +10,12 @@ class CategoryControllers{
             id,
             categoryname,
           }).then(() => {
-            response.render("message", {
+            response.render("messageCategory", {
               message: "Categoria registrada exitosamente"
             });
           });
         } catch (err) {
-          response.render("message", {
+          response.render("messageCategory", {
             message: `Error al registrar categoria: ${err.message}`
           });
         }
@@ -28,12 +28,12 @@ class CategoryControllers{
   
       try {
         await deleteCategoryService.delete(id).then(() => {
-          response.render("message", {
+          response.render("messageCategory", {
             message: "Categoria eliminada correctamente"
           });
         });
       } catch (err) {
-        response.render("message", {
+        response.render("messageCategory", {
           message: `Error al eliminar categoria: ${err.message}`
         });
       }
@@ -72,7 +72,7 @@ class CategoryControllers{
           search: search
         });
       } catch (err) {
-        response.render("message", {
+        response.render("messageCategory", {
           message: `Error al buscar category: ${err.message}`
         });
       }
@@ -84,12 +84,12 @@ class CategoryControllers{
   
       try {
         await updateCategoryService.update({ id, categoryname}).then(() => {
-          response.render("message", {
+          response.render("messageCategory", {
             message: "Categoria actualizada correctamente"
           });
         });
       } catch (err) {
-        response.render("message", {
+        response.render("messageCategory", {
           message: `Error al actualizar categoria: ${err.message}`
         });
       }
