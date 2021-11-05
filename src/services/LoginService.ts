@@ -86,14 +86,13 @@ class LoginService {
 
     async autentication({username, password}: ILogin){
       const loginRepository = getCustomRepository(LoginRepository);
-      const userAlreadyExists = await loginRepository.findOne({ username });
-      const passwordAlreadyExists = await loginRepository.findOne({password})
+      const userAlreadyExists = await loginRepository.findOne({ username,password });
 
       if (!username && !password) {
         throw new Error("Por favor rellenar todos los campos");
       }
 
-      if (userAlreadyExists && passwordAlreadyExists) {
+      if (userAlreadyExists) {
         return true;
       }
       else{
