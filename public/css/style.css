@@ -43,11 +43,9 @@ body {
 .table{
   border: 2px solid rgb(238, 199, 26);
   padding: 30px
+
 }
-.submenu{
-  position: absolute;
-  background: #c4a029;
-}
+
 .card {
   text-align: center;
   padding: 20px;
