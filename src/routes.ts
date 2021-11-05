@@ -50,8 +50,8 @@ router.get("/signUp", (request, response) => {
 router.get("/signIn", (request, response) => {
   response.render("signIn");
 });
-router.post("/registro",login.handleCreateSingUp);
-router.post("/login", login.signInAutentication);
+router.post("/signUp",login.handleCreateSingUp);
+router.post("/signIn", login.signInAutentication);
 router.get("/ListLogin",login.handleListUser);
 router.get("/search", login.handleSearchUser);
 router.get("/editLogin", login.handleGetUser);

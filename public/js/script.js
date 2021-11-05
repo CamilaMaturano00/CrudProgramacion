@@ -4,11 +4,10 @@ function counter() {
   let timerDiv = document.getElementById("timer");
 
   let timer = setInterval(function () {
-
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
-      window.location.href = "./Usuarios"
+      window.location.href = "./index"
     }
   }, 1000);
 }
@@ -31,7 +30,6 @@ function counterSignUp() {
   let timerDiv = document.getElementById("timer");
 
   let timer = setInterval(function () {
-    
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
